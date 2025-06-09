@@ -1,0 +1,11 @@
+title: Aishwarya Creative Films
+email: aishwaryacreativefilms@gmail.com
+description: >-
+  Movie production and distribution company.
+baseurl: ""
+url: ""
+theme: minima
+header_pages:
+  - index.html
+  - contact.html
+  - privacy.html
