@@ -4,7 +4,7 @@ description: >-
   Movie production and distribution company.
 baseurl: ""
 url: ""
-theme: jekyll-theme-cayman
+theme: null
 header_pages:
   - index.html
   - contact.html

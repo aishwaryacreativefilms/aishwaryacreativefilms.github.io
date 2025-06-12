@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a class="logo" href="{{ '/' | relative_url }}">Aishwarya Creative Films</a>
+      <ul class="nav-links">
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+        <li><a href="{{ '/privacy.html' | relative_url }}">Privacy</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="container">
+    {{ content }}
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; {{ site.time | date: '%Y' }} Aishwarya Creative Films LLC</p>
+    </div>
+  </footer>
+  <script src="{{ '/js/script.js' | relative_url }}"></script>
+</body>
+</html>
