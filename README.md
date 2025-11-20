@@ -7,7 +7,7 @@ This repository contains the source for the [Aishwarya Creative Films](https://w
 - `magic-spell.html` – product page for the Magic Spelling iOS app.
 - `magic-spell-privacy.html` – privacy policy dedicated to Magic Spelling.
 - `privacy.html` – general privacy policy.
-- `css/`, `images/`, and `js/` – static assets used across the site.
+- `css/` and `js/` – static assets used across the site. Image previews are pulled from gradients or remote sources so no binary files are tracked.
 
 ## Local development
 1. Install [Ruby](https://www.ruby-lang.org/) and [Jekyll](https://jekyllrb.com/):

@@ -5,23 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="impact-site-verification" value="a5169cf9-57f0-4446-937e-435e727e4f29">
   <meta name="verify-admitad" content="f61d41786e" />
-  <title>{{ page.title }}</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  {% assign meta_description = page.meta_description | default: site.description %}
+  {% assign meta_keywords = page.meta_keywords | default: site.meta_keywords %}
+  {% assign canonical_url = page.url | absolute_url %}
+  <meta name="description" content="{{ meta_description | escape }}">
+  {% if meta_keywords %}<meta name="keywords" content="{{ meta_keywords | join: ', ' | escape }}">{% endif %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ meta_description | escape }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | escape }}">
+  <meta name="twitter:description" content="{{ meta_description | escape }}">
+  <meta name="robots" content="index, follow">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.title | escape }}",
+    "url": "{{ site.url | escape }}",
+    "email": "{{ site.email | escape }}",
+    "sameAs": [
+      "https://www.instagram.com/aishwaryacreativefilms/",
+      "https://www.youtube.com/@aishwaryacreativefilms"
+    ]
+  }
+  </script>
 </head>
 <body>
   <nav class="navbar">
-    <div class="container">
-      <img src="./images/logo.png" width="140px" />
-      <a class="logo" href="{{ '/' | relative_url }}">Aishwarya Creative Films</a>
-      <ul class="nav-links">
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/services.html' | relative_url }}">Services</a></li>
-        <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
-        <li><a href="{{ '/svr-deals.html' | relative_url }}">SVR Deals</a></li>
-        <li><a href="{{ '/magic-spell.html' | relative_url }}">Magic Spell</a></li>
-        <li><a href="{{ '/privacy.html' | relative_url }}">Privacy</a></li>
-      </ul>
+    <div class="container nav-container">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <a class="logo" href="{{ '/' | relative_url }}">Aishwarya Creative Films</a>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/services.html' | relative_url }}">Services</a></li>
+          <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/svr-deals.html' | relative_url }}">SVR Deals</a></li>
+          <li><a href="{{ '/magic-spell.html' | relative_url }}">Magic Spell</a></li>
+          <li><a href="{{ '/privacy.html' | relative_url }}">Privacy</a></li>
+        </ul>
+        <a class="pill-button" href="https://apps.apple.com/us/app/svr-deals-black-friday-2025/id6755274754" target="_blank" rel="noopener">App Store</a>
+      </div>
     </div>
   </nav>
   <main class="container">
