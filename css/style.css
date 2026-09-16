@@ -15,7 +15,7 @@
   --cream: #fff8e7;
   --radius: 16px;
   --font-body: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "Cabinet Grotesk", "Space Grotesk", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +30,7 @@ body {
 }
 .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; letter-spacing: -0.01em; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; letter-spacing: -0.02em; }
 h1 { font-size: clamp(2.7rem, 6.2vw, 4.7rem); font-weight: 600; margin: 22px 0 22px; }
 h2 { font-size: clamp(1.8rem, 3.8vw, 2.6rem); font-weight: 600; margin: 12px 0 16px; }
 h3 { font-size: 1.25rem; font-weight: 600; margin: 14px 0 10px; }
@@ -40,7 +40,7 @@ img { max-width: 100%; height: auto; }
 iframe { max-width: 100%; display: block; border: 0; }
 
 .gold-text { color: var(--gold); }
-.hero h1 .gold-text,
+.hero h1 .gold-text { color: var(--gold); }
 .gradient-gold {
   background: linear-gradient(100deg, var(--gold-soft) 5%, var(--gold) 45%, var(--gold-deep) 95%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -168,10 +168,6 @@ a.button-secondary:hover, button.button-secondary:hover { transform: translateY(
 }
 .hero-copy { min-width: 0; }
 .hero-cta { display: flex; gap: 14px; margin: 38px 0 44px; flex-wrap: wrap; }
-.hero-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.hero-point { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
-.hero-point strong { display: block; font-family: var(--font-display); color: var(--text); font-size: 0.95rem; margin-bottom: 6px; }
-.hero-point span { color: var(--muted); font-size: 0.88rem; }
 .hero-visual { position: relative; border-radius: 24px; }
 .hero-visual img {
   display: block; width: 100%; border-radius: 24px;
@@ -179,26 +175,6 @@ a.button-secondary:hover, button.button-secondary:hover { transform: translateY(
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(247, 201, 75, 0.08), 0 0 90px rgba(247, 201, 75, 0.1);
   aspect-ratio: 4 / 3.4; object-fit: cover;
 }
-.float-chip {
-  position: absolute; z-index: 3;
-  font-family: var(--font-display); font-size: 0.82rem; font-weight: 600;
-  background: rgba(11, 9, 8, 0.78); border: 1px solid rgba(247, 201, 75, 0.4);
-  color: var(--text); padding: 9px 16px; border-radius: 999px;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-  animation: floaty 5s ease-in-out infinite; white-space: nowrap;
-}
-.chip-a { top: 8%; left: -24px; animation-delay: 0s; }
-.chip-b { bottom: 22%; right: -18px; animation-delay: 1.6s; }
-.chip-c { bottom: -16px; left: 12%; animation-delay: 3.1s; }
-@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-.scroll-hint {
-  position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 2;
-  width: 26px; height: 42px; border: 2px solid var(--border); border-radius: 14px;
-  display: flex; justify-content: center; padding-top: 8px; opacity: 0.7;
-}
-.scroll-hint span { width: 4px; height: 8px; border-radius: 4px; background: var(--gold); animation: hint 1.8s ease-in-out infinite; }
-@keyframes hint { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(12px); opacity: 0; } 100% { transform: translateY(0); opacity: 0; } }
 
 /* Marquee */
 .marquee {
@@ -262,6 +238,31 @@ a.button-secondary:hover, button.button-secondary:hover { transform: translateY(
   border-radius: 18px; padding: 22px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
   animation: floaty 6s ease-in-out infinite;
+}
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+/* Full-width feature banner (breaks the card-split rhythm) */
+.project-banner {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 22px; overflow: hidden; margin-bottom: 22px;
+  transition: border-color 0.2s ease;
+}
+.project-banner:hover { border-color: rgba(247, 201, 75, 0.45); }
+.project-banner-media { position: relative; height: 300px; overflow: hidden; }
+.project-banner-media .project-img { transform: scale(1.04); }
+.project-banner-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(11,9,8,0.05) 40%, rgba(11,9,8,0.72));
+  pointer-events: none;
+}
+.project-banner-body { padding: 40px 44px 44px; }
+.project-banner-body h3 { font-size: 1.7rem; margin: 14px 0 18px; }
+.project-banner-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.project-banner-cols p { color: var(--muted); font-size: 0.97rem; margin: 0; }
+@media (max-width: 900px) {
+  .project-banner-media { height: 200px; }
+  .project-banner-body { padding: 28px 24px 32px; }
+  .project-banner-cols { grid-template-columns: 1fr; gap: 14px; }
 }
 
 /* SVR Deals platform band */
@@ -441,8 +442,6 @@ a.button-secondary:hover, button.button-secondary:hover { transform: translateY(
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .svr-band-inner { grid-template-columns: 1fr; gap: 44px; }
-  .chip-a { left: 8px; }
-  .chip-b { right: 8px; }
 }
 @media (max-width: 900px) {
   .project-card { grid-template-columns: 1fr; }
@@ -452,14 +451,12 @@ a.button-secondary:hover, button.button-secondary:hover { transform: translateY(
   .screenshot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .hero-points { grid-template-columns: 1fr; }
   .service-grid, .service-grid.compact, .story-grid, .svr-feature-grid, .screenshot-grid { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: 1fr; }
   .hero { padding: 56px 0 72px; }
   .section { padding: 70px 0; }
   .project-body { padding: 32px 26px; }
   .footer-grid { grid-template-columns: 1fr; }
-  .scroll-hint { display: none; }
   .nav-toggle { display: block; }
   .nav-links {
     display: none; position: absolute; top: 72px; left: 0; right: 0;
@@ -478,7 +475,7 @@ a.button-secondary:hover, button.button-secondary:hover { transform: translateY(
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee-track, .pulse-dot, .float-chip, .visual-card, .scroll-hint span { animation: none !important; }
+  .marquee-track, .pulse-dot, .visual-card { animation: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
   #film-dust { display: none; }
 }
