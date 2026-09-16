@@ -364,7 +364,7 @@ a.button-secondary:hover, button.button-secondary:hover { transform: translateY(
 .features { margin: 80px 0; }
 .how-it-works { margin: 80px 0; }
 .detail-highlights { margin: 60px 0; }
-.app-hero, .services-hero, .deals-hero { padding: 80px 0 56px; position: relative; }
+.app-hero, .services-hero, .deals-hero { padding: 40px 0 48px; position: relative; }
 .app-store-badge {
   display: inline-block; margin-top: 14px; color: var(--gold); font-weight: 600; text-decoration: none;
 }
@@ -434,7 +434,7 @@ a.button-secondary:hover, button.button-secondary:hover { transform: translateY(
 .footer p { color: var(--muted); font-size: 0.9rem; }
 
 /* Generic section spacing for subpages */
-.page-main { padding: 64px 0 96px; }
+.page-main { padding-top: 32px; padding-bottom: 96px; }
 .page-main > section { margin: 56px 0; }
 .page-main > section:first-child { margin-top: 0; }
 
