@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script type="application/ld+json">
@@ -134,7 +134,7 @@
     </div>
   </footer>
 
-  <script src="{{ '/js/film-dust.js' | relative_url }}"></script>
-  <script src="{{ '/js/script.js' | relative_url }}"></script>
+  <script src="{{ '/js/film-dust.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/js/script.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 </body>
 </html>
